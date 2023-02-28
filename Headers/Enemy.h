@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdlib>
 #include "Character.h"
+#include "../Utils.h"
 
 enum EnemySizes
 {

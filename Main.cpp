@@ -2,6 +2,10 @@
 
 int main()
 {
+    // Initalize the seed for the random variables
+    //srand((unsigned)time(NULL));
+    srand(10); // use 10 as the 'seed'
+
     // Variables
     int numberOfEnemies;
 
@@ -24,6 +28,7 @@ int main()
     // Combat
     // Result
 
+    system("pause");
     return 0;
 }
 
