@@ -18,7 +18,7 @@ void Enemy::SetEnemySize()
     int random = rand() % 3 + 1;        // random number between 1 and 3
     this->size = EnemySizes(random);
 
-    std::cout << "Size: %i" << size << ".\n";
+    std::cout << "Creating a new enemy of size: " << size << ".\n";
 }
 
 void Enemy::SetStats()

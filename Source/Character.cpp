@@ -13,6 +13,8 @@ void Character::CreateCharacter()
 
 }
 
+void Character::SetStats() {}
+
 void Character::TakeDamage(float damage)
 {
     Health -= damage;

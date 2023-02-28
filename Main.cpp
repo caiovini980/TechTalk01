@@ -12,9 +12,15 @@ int main()
     std::cin >> numberOfEnemies;
 
     // Create the characters
-    class Enemy enemy;
-
     // Setup the dungeon (position each character on the array)
+    std::vector<class Enemy> enemies;
+
+    for (int i = 0; i < numberOfEnemies; i++)
+    {
+        class Enemy enemy;
+        enemies.push_back(enemy);
+    }
+
     // Combat
     // Result
 
