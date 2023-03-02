@@ -13,8 +13,13 @@ private:
 protected:
     float Health;
     float Damage;
+
+    CharacterTypes type;
+
     void CreateCharacter();
-    virtual void SetStats();
+
+    virtual void Died() = 0;
+    virtual void SetStats() = 0;
 
 public:
     Character();

@@ -15,8 +15,11 @@ class Enemy : private Character
 {
 private:
     EnemySizes size;
+    CharacterTypes type;
+
     void SetEnemySize();
     void SetStats();
+    void Died();
 
 public:
     Enemy();

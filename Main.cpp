@@ -4,7 +4,7 @@ int main()
 {
     // Initalize the seed for the random variables
     //srand((unsigned)time(NULL));
-    srand(10); // use 10 as the 'seed'
+    srand(11); // use 10 as the 'seed'
 
     // Variables
     int numberOfEnemies;
@@ -16,6 +16,8 @@ int main()
     std::cin >> numberOfEnemies;
 
     // Create the characters
+    class Player player(10.0f, 2.0f);
+
     // Setup the dungeon (position each character on the array)
     std::vector<class Enemy> enemies;
 

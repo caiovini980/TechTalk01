@@ -3,9 +3,13 @@
 
 Enemy::Enemy()
 {
-    CreateCharacter();
     SetEnemySize();
     SetStats();
+
+    std::cout << "Creating a new enemy of Health of: " << Health << " and Damage of " << Damage << ".\n\n";
+    type = CharacterTypes::Enemy;
+
+    // Add to the final score
 }
 
 Enemy::~Enemy()
@@ -15,10 +19,7 @@ Enemy::~Enemy()
 void Enemy::SetEnemySize()
 {                                           
     int random = GetRandom<int>(1, 3);        // random number between 1 and 3
-    std::cout << "Got random value: " << random << ".\n";
     this->size = EnemySizes(random);
-
-    std::cout << "Creating a new enemy of size: " << size << ".\n";
 }
 
 void Enemy::SetStats()
@@ -27,19 +28,27 @@ void Enemy::SetStats()
 
     if (size == 1)                      // Big
     {
-        Health = 10;
-        Damage = 2;
+        Health = GetRandom<int>(7, 4);
+        Damage = GetRandom<int>(3, 2);
     }
 
     else if(size == 2)                  // Medium
     {
-        Health = 6;
-        Damage = 2;
+        Health = GetRandom<int>(5, 3);
+        Damage = GetRandom<int>(2, 2);
     }
 
     else                                // Small
     {
-        Health = 4;
-        Damage = 1;
+        Health = GetRandom<int>(2, 3);
+        Damage = GetRandom<int>(1, 2);
     }
+
+    std::cout << "Stats: Health -> " << Health << "  Damage -> " << Damage << "\n";
+}
+
+void Enemy::Died()
+{
+    std::cout << "You killed a enemy of size " << size;
+    // add to the final score
 }
