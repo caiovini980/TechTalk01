@@ -1,7 +1,7 @@
 #include "../Headers/Enemy.h"
 #include <iostream>
 
-Enemy::Enemy()
+Enemy::Enemy() : Character(CharacterTypes::Enemy)
 {
     SetEnemySize();
     SetStats();
@@ -48,6 +48,8 @@ void Enemy::SetStats()
         Health = GetRandom<int>(2, 3);
         Damage = GetRandom<int>(1, 2);
     }
+
+    MaxHealth = Health;
 }
 
 void Enemy::Died()

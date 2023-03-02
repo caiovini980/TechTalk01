@@ -2,7 +2,7 @@
 
 enum CharacterTypes
 {
-    Player,
+    Player = 0,
     Enemy
 };
 
@@ -12,6 +12,7 @@ private:
 
 protected:
     float Health;
+    float MaxHealth;
     float Damage;
 
     CharacterTypes type;
@@ -22,11 +23,12 @@ protected:
     virtual void SetStats() = 0;
 
 public:
-    Character();
+    Character(CharacterTypes defaultType);
     ~Character();
 
     float GetHealth();
     CharacterTypes GetType();
+    void HealCharacter(float healthToAdd);
     void TakeDamage(float damage);
     void Attack(Character& characterToDamage);
 };

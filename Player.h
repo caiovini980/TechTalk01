@@ -9,8 +9,6 @@ public:
 	~Player();
 
 private:
-	CharacterTypes type;
-
 	void SetStats();
 	void Died();
 };

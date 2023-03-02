@@ -15,7 +15,6 @@ class Enemy : public Character
 {
 private:
     EnemySizes size;
-    CharacterTypes type;
 
     void SetEnemySize();
     void SetStats();
