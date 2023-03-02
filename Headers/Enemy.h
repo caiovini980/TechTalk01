@@ -11,7 +11,7 @@ enum EnemySizes
     Big
 };
 
-class Enemy : private Character
+class Enemy : public Character
 {
 private:
     EnemySizes size;
@@ -24,4 +24,6 @@ private:
 public:
     Enemy();
     ~Enemy();
+
+    EnemySizes GetEnemySize();
 };

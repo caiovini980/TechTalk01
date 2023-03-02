@@ -16,6 +16,11 @@ Enemy::~Enemy()
 {
 }
 
+EnemySizes Enemy::GetEnemySize()
+{
+    return size;
+}
+
 void Enemy::SetEnemySize()
 {                                           
     int random = GetRandom<int>(1, 3);        // random number between 1 and 3
@@ -43,8 +48,6 @@ void Enemy::SetStats()
         Health = GetRandom<int>(2, 3);
         Damage = GetRandom<int>(1, 2);
     }
-
-    std::cout << "Stats: Health -> " << Health << "  Damage -> " << Damage << "\n";
 }
 
 void Enemy::Died()

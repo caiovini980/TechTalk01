@@ -2,7 +2,7 @@
 #include "./Headers/Character.h"
 #include <iostream>
 
-class Player : private Character
+class Player : public Character
 {
 public:
 	Player(float baseHealth, float baseDamage);

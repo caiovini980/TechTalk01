@@ -19,13 +19,26 @@ int main()
     class Player player(10.0f, 2.0f);
 
     // Setup the dungeon (position each character on the array)
-    std::vector<class Enemy> enemies;
+    std::vector<class Enemy> battlefield = SetupDungeon(numberOfEnemies);
 
-    for (int i = 0; i < numberOfEnemies; i++)
+    system("pause");
+    system("cls");
+
+    // Show the dungeon disposition
+    std::cout << "Dungeon disposition: ";
+    for (int i = 0; i < battlefield.size(); i++)
     {
-        class Enemy enemy;
-        enemies.push_back(enemy);
+        if (i == battlefield.size() - 1)
+        {
+            std::cout << battlefield[i].GetEnemySize();
+            continue;
+        }
+
+        std::cout << battlefield[i].GetEnemySize() << ", ";
     }
+
+    std::cout << "\nPress Enter to start the dungeon.\n";
+    system("pause");
 
     // Combat
     // Result
@@ -34,7 +47,15 @@ int main()
     return 0;
 }
 
-void SetupBattle()
+std::vector<class Enemy> SetupDungeon(int numberOfEnemies)
 {
+    std::vector<class Enemy> enemies;
 
+    for (int i = 0; i < numberOfEnemies; i++)
+    {
+        class Enemy enemy;
+        enemies.push_back(enemy);
+    }
+
+    return enemies;
 }

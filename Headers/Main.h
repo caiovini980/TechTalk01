@@ -5,7 +5,7 @@
 #include "./Enemy.h"
 #include "../Player.h"
 
-void SetupBattle();
+std::vector<class Enemy> SetupDungeon(int numberOfEnemies);
 void CreateCharacter();
 void CreatePlayerCharacter();
 void CreateEnemies();

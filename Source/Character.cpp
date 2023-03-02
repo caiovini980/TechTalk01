@@ -31,3 +31,8 @@ void Character::Attack(const Character& characterToDamage)
 {
     characterToDamage:TakeDamage(Damage);
 }
+
+float Character::GetHealth()
+{
+    return this->Health;
+}
