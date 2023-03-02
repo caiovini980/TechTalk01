@@ -52,6 +52,6 @@ void Enemy::SetStats()
 
 void Enemy::Died()
 {
-    std::cout << "You killed a enemy of size " << size;
+    std::cout << "You killed a enemy of size " << size << "\n";
     // add to the final score
 }

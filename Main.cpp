@@ -41,6 +41,8 @@ int main()
     system("pause");
 
     // Combat
+    class Combat combat(player, battlefield);
+
     // Result
 
     system("pause");

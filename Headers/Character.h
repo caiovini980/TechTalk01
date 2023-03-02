@@ -26,6 +26,7 @@ public:
     ~Character();
 
     float GetHealth();
+    CharacterTypes GetType();
     void TakeDamage(float damage);
-    void Attack(const Character& characterToDamage);
+    void Attack(Character& characterToDamage);
 };

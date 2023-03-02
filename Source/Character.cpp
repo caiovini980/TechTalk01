@@ -27,12 +27,17 @@ void Character::TakeDamage(float damage)
     }
 }
 
-void Character::Attack(const Character& characterToDamage)
+void Character::Attack(Character& characterToDamage)
 {
-    characterToDamage:TakeDamage(Damage);
+    characterToDamage.TakeDamage(Damage);
 }
 
 float Character::GetHealth()
 {
     return this->Health;
+}
+
+CharacterTypes Character::GetType()
+{
+    return this->type;
 }
