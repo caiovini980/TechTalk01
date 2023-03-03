@@ -27,6 +27,15 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Combat.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Result.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\Character.h">
@@ -40,6 +49,15 @@
     </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Combat.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Result.h">
+      <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

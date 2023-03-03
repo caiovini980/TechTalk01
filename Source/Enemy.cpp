@@ -1,15 +1,16 @@
 #include "../Headers/Enemy.h"
 #include <iostream>
 
-Enemy::Enemy() : Character(CharacterTypes::Enemy)
+Enemy::Enemy(class Result& result) : Character(CharacterTypes::Enemy)
 {
     SetEnemySize();
     SetStats();
 
-    std::cout << "Creating a new enemy of Health of: " << Health << " and Damage of " << Damage << ".\n\n";
+    std::cout << "Creating a new enemy of Health of: " << Health << " and Damage of " << Damage << ".\n";
     type = CharacterTypes::Enemy;
 
     // Add to the final score
+    result.AddEnemyToResult(size);
 }
 
 Enemy::~Enemy()
@@ -50,10 +51,4 @@ void Enemy::SetStats()
     }
 
     MaxHealth = Health;
-}
-
-void Enemy::Died()
-{
-    std::cout << "You killed a enemy of size " << size << "\n";
-    // add to the final score
 }

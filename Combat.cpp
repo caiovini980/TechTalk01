@@ -1,8 +1,10 @@
 # include "Combat.h"
 
-Combat::Combat(class Player& player, std::vector<class Enemy> battlefield)
+Combat::Combat(class Player& player, std::vector<class Enemy> battlefield, class Result& result)
 {
 	CurrentTurn = Turn::NoneTurn;
+
+	std::cout << "\n* ENTER THE DUNGEON!! * - Villagers are shouting...\nPontius take a deep breath and enters it\n";
 
 	for (int index = 0; index < battlefield.size(); index++)
 	{
@@ -10,16 +12,20 @@ Combat::Combat(class Player& player, std::vector<class Enemy> battlefield)
 
 		if (player.GetHealth() < 0)
 		{
-			std::cout << "Player died!\nFinishing game...\n";
-			break;
+			system("cls");
+			result.ShowFinalResult(false);
+			return;
 		}
 
 		system("cls");
+		result.AddKillToResult(battlefield[index].GetEnemySize());
 		player.HealCharacter(GetRandom<int>(1, 3));
-		std::cout << "\nHealing player for the next battle...\n";
+		std::cout << "\nHealing Pontius for the next battle...\n";
 		std::cout << "Getting next enemy...\n";
-		system("pause");
 	}
+
+	system("cls");
+	result.ShowFinalResult(true);
 }
 
 Combat::~Combat()
@@ -30,24 +36,21 @@ void Combat::ExecuteCombat(class Player& player, class Enemy& enemy)
 {
 	while (player.GetHealth() > 0 && enemy.GetHealth() > 0)
 	{
+		system("pause");
 		system("cls");
-		std::cout << "Player health: " << player.GetHealth() << "\nCurrent enemy Health: " << enemy.GetHealth() << "\n\n";
+		std::cout << "Pontius' health: " << player.GetHealth() << "\nCurrent enemy Health: " << enemy.GetHealth() << "\n\n";
 
 		CurrentTurn = SwitchTurn();
 
 		if (CurrentTurn == Turn::PlayerTurn)
 		{
 			if (!TryToHit(enemy)) { continue; }
-
 			player.Attack(enemy);
-			system("pause");
 			continue;
 		}
 
 		if (!TryToHit(player)) { continue; }
-
 		enemy.Attack(player);
-		system("pause");
 	}
 }
 
@@ -55,24 +58,24 @@ bool Combat::TryToHit(class Character& classToHit)
 {
 	int random = GetRandom<int>(1, 20);
 
-	if (classToHit.GetType() == CharacterTypes::Enemy) // attacking the enemy
-	{
-		if (random > 15)
-		{
-			std::cout << "HITTING PLAYER!\n";
-			return true;
-		}
-	}
-	else // attacking a enemy
+	if (classToHit.GetType() == CharacterTypes::Enemy) // attacking a enemy
 	{
 		if (random > 10)
 		{
-			std::cout << "HITTING ENEMY!\n";
+			std::cout << "HITTING ENEMY!\n\n";
+			return true;
+		}
+	}
+	else // attacking the player
+	{
+		if (random > 15)
+		{
+			std::cout << "HITTING PONTIUS!\n\n";
 			return true;
 		}
 	}
 
-	std::cout << "MISSED!\n";
+	std::cout << "MISSED!\n\n";
 	return false;
 }
 
@@ -92,7 +95,7 @@ Turn Combat::SwitchTurn()
 	}
 	else // Enemy attacking
 	{
-		std::cout << "Player attacking!\n";
+		std::cout << "Pontius attacking!\n";
 		return Turn::PlayerTurn;
 	}
 }

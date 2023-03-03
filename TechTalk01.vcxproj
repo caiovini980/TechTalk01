@@ -98,15 +98,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Combat.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Result.cpp" />
     <ClCompile Include="source\Character.cpp" />
     <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Combat.h" />
     <ClInclude Include="headers\Character.h" />
     <ClInclude Include="headers\Enemy.h" />
     <ClInclude Include="headers\Main.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Result.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

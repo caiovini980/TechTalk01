@@ -4,22 +4,28 @@ int main()
 {
     // Initalize the seed for the random variables
     //srand((unsigned)time(NULL));
-    srand(11); // use 10 as the 'seed'
+    srand(10); // use 10 as the 'seed'
 
     // Variables
     int numberOfEnemies;
 
     // Welcome text and input
-    std::cout << "Welcome to the dungeon crawler for the Tech Talk!\n";
-    std::cout << "Here you will choose the amount of enemies that you want to fight against and hope for the best.\n";
-    std::cout << "Whats's the amount of enemies that you wanna fight? ";
+    std::cout << "Welcome to the dungeon crawler for the Tech Talk!\n\n";
+    std::cout << "Here you will assume Pontius,\na barbarian that needs to prove to his village that he is worthy to be called a warrior,\neven though nobody saw him in battle yet.\nNow, he decided to enter a dungeon and defeat the enemies that lives inside of it. Good luck.\n\n";
+    std::cout << "Choose the amount of enemies that you want to fight against and hope for the best: ";
     std::cin >> numberOfEnemies;
+
+    // Setup the result/scoreboard
+    class Result result;
+
+    system("cls");
 
     // Create the characters
     class Player player(10.0f, 2.0f);
 
     // Setup the dungeon (position each character on the array)
-    std::vector<class Enemy> battlefield = SetupDungeon(numberOfEnemies);
+    std::cout << "\nCreating enemies...\n";
+    std::vector<class Enemy> battlefield = SetupDungeon(numberOfEnemies, result);
 
     system("pause");
     system("cls");
@@ -37,25 +43,18 @@ int main()
         std::cout << battlefield[i].GetEnemySize() << ", ";
     }
 
-    std::cout << "\nPress Enter to start the dungeon.\n";
-    system("pause");
-
     // Combat
-    class Combat combat(player, battlefield);
-
-    // Result
-
-    system("pause");
+    class Combat combat(player, battlefield, result);
     return 0;
 }
 
-std::vector<class Enemy> SetupDungeon(int numberOfEnemies)
+std::vector<class Enemy> SetupDungeon(int numberOfEnemies, class Result& result)
 {
     std::vector<class Enemy> enemies;
 
     for (int i = 0; i < numberOfEnemies; i++)
     {
-        class Enemy enemy;
+        class Enemy enemy(result);
         enemies.push_back(enemy);
     }
 

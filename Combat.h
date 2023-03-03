@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.h"
+#include "Result.h"
 #include "Headers/Enemy.h"
 #include <vector>
 #include "./Utils.h"
@@ -14,7 +15,7 @@ enum Turn
 class Combat
 {
 public:
-	Combat(class Player& player, std::vector<class Enemy> battlefield);
+	Combat(class Player& player, std::vector<class Enemy> battlefield, class Result& result);
 	~Combat();
 
 private:

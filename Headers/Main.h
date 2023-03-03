@@ -4,9 +4,7 @@
 #include <vector>
 #include "./Enemy.h"
 #include "../Player.h"
+#include "../Result.h"
 #include "../Combat.h"
 
-std::vector<class Enemy> SetupDungeon(int numberOfEnemies);
-void CreateCharacter();
-void CreatePlayerCharacter();
-void CreateEnemies();
+std::vector<class Enemy> SetupDungeon(int numberOfEnemies, class Result& result);

@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdlib>
 #include "Character.h"
+#include "../Result.h"
 #include "../Utils.h"
 
 enum EnemySizes
@@ -21,7 +22,7 @@ private:
     void Died();
 
 public:
-    Enemy();
+    Enemy(class Result& result);
     ~Enemy();
 
     EnemySizes GetEnemySize();

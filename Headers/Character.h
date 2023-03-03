@@ -17,9 +17,6 @@ protected:
 
     CharacterTypes type;
 
-    void CreateCharacter();
-
-    virtual void Died() = 0;
     virtual void SetStats() = 0;
 
 public:
