@@ -21,6 +21,6 @@ private:
 	Turn CurrentTurn;
 
 	void ExecuteCombat(class Player& player, class Enemy& enemy);
-	bool TryToHit(class Character& classToHit);
+	bool TryToHit(class Character &classToHit);
 	Turn SwitchTurn();
 };

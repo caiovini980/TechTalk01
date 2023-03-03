@@ -13,6 +13,12 @@ Combat::Combat(class Player& player, std::vector<class Enemy> battlefield)
 			std::cout << "Player died!\nFinishing game...\n";
 			break;
 		}
+
+		system("cls");
+		player.HealCharacter(GetRandom<int>(1, 3));
+		std::cout << "\nHealing player for the next battle...\n";
+		std::cout << "Getting next enemy...\n";
+		system("pause");
 	}
 }
 
@@ -25,6 +31,7 @@ void Combat::ExecuteCombat(class Player& player, class Enemy& enemy)
 	while (player.GetHealth() > 0 && enemy.GetHealth() > 0)
 	{
 		system("cls");
+		std::cout << "Player health: " << player.GetHealth() << "\nCurrent enemy Health: " << enemy.GetHealth() << "\n\n";
 
 		CurrentTurn = SwitchTurn();
 
@@ -48,11 +55,11 @@ bool Combat::TryToHit(class Character& classToHit)
 {
 	int random = GetRandom<int>(1, 20);
 
-	if (classToHit.GetType() == 0) // attacking the player
+	if (classToHit.GetType() == CharacterTypes::Enemy) // attacking the enemy
 	{
-		if (random > 12)
+		if (random > 15)
 		{
-			std::cout << "HIT!\n";
+			std::cout << "HITTING PLAYER!\n";
 			return true;
 		}
 	}
@@ -60,7 +67,7 @@ bool Combat::TryToHit(class Character& classToHit)
 	{
 		if (random > 10)
 		{
-			std::cout << "HIT!\n";
+			std::cout << "HITTING ENEMY!\n";
 			return true;
 		}
 	}
@@ -78,14 +85,14 @@ Turn Combat::SwitchTurn()
 		CurrentTurn = Turn(randomTurn);
 	}
 
-	if (CurrentTurn == 1) // Player attacking
+	if (CurrentTurn == 1) // Player attacked, enemy attacking
 	{
-		std::cout << "Player attacking!\n";
+		std::cout << "Enemy attacking!\n";
 		return Turn::EnemyTurn;
 	}
 	else // Enemy attacking
 	{
-		std::cout << "Enemy attacking!\n";
+		std::cout << "Player attacking!\n";
 		return Turn::PlayerTurn;
 	}
 }
